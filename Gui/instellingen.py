@@ -1,7 +1,6 @@
 import tkinter as tk
 
 maxUitrolInCm = str(100)                # deze waarde kan je zelf nog aanpassen
-# deze waarde kan je zelf nog aanpassen.
 maxInrolInCm = str(20)
 
 
@@ -33,11 +32,3 @@ def showPagina():
     buttonExit.place(x=1100, y=1000)
 
     root.mainloop()
-
-
-def wijzigingMaxUitrolOpslaan(arg):
-    maxIntrolInCm = arg
-
-
-def wijzigingMaxInrolOpslaan(arg):
-    maxUitrolInCm = arg

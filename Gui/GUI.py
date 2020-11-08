@@ -1,5 +1,5 @@
 import tkinter as tk
-import TemperatuurGrafiek as temperatuur
+import Temperatuur as temperatuur
 import lichtintensiteit as lichtintensiteit
 import instellingen as instellingen
 

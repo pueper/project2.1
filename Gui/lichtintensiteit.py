@@ -11,11 +11,17 @@ def showPagina():
     root.focus_set()
     root.bind("<Escape>", lambda e: e.widget.quit())
 
-    tk.Label(root, text="Overzicht temperatuursensor",
-             fg="blue", width=175, height=60).pack()
+    lichtintensiteitPaginaTekst = tk.Label(root, text="Overzicht lichtintensiteit",
+                                           font=40)
     root.title("Overzicht lichtintensiteit")
+
     buttonExit = tk.Button(
         root, text="Terug", command=root.destroy)
 
     buttonExit.pack()
+    lichtintensiteitPaginaTekst.pack()
+
+    lichtintensiteitPaginaTekst.place(x=850, y=200)
+    buttonExit.place(x=1100, y=1000)
+
     root.mainloop()
