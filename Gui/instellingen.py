@@ -1,19 +1,38 @@
 import tkinter as tk
 
-maxUitrolInCm = str(100)
+maxUitrolInCm = str(100)                # deze waarde kan je zelf nog aanpassen
+# deze waarde kan je zelf nog aanpassen.
 maxInrolInCm = str(20)
 
 
 def showPagina():
 
-    window = tk.Tk()
-    window.title("Overzicht lichtintensiteit")
-    tk.Label(window, text="Overzicht Instellingen\nHieronder een overzicht van de instellingen: \n\n\n De maximale inrolstand is: " + maxInrolInCm + " centimeter \n" +
-             "De maximale uitrolstand is: " + maxUitrolInCm + " centimeter",
-             fg="blue", width=175, height=60).pack()
+    root = tk.Tk()
 
-    wijzigenMaximaleUitrol = tk.Text(window, height=1, width=10).pack()
-    window.mainloop()
+    # instellingen voor fullscreen
+    root.overrideredirect(True)
+    root.geometry(
+        "{0}x{1}+0+0".format(root.winfo_screenwidth(), root.winfo_screenheight()))     # instellingen voor fullscreen
+    # instellingen voor fullscreen
+    root.focus_set()
+    # instellingen voor fullscreen
+    root.bind("<Escape>", lambda e: e.widget.quit())
+
+    root.title("Overzicht lichtintensiteit")
+    instellingenTekst = tk.Label(root, text="Overzicht Instellingen: \n\n\n De maximale inrolstand is: " + maxInrolInCm + " centimeter \n" +
+                                 "De maximale uitrolstand is: " + maxUitrolInCm + " centimeter",
+                                 font=40)
+
+    buttonExit = tk.Button(
+        root, text="Terug", command=root.destroy)
+
+    instellingenTekst.pack()
+    buttonExit.pack()
+
+    instellingenTekst.place(x=800, y=200)
+    buttonExit.place(x=1100, y=1000)
+
+    root.mainloop()
 
 
 def wijzigingMaxUitrolOpslaan(arg):
