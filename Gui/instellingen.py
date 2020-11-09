@@ -1,8 +1,8 @@
 import tkinter as tk
 
 # variabele voor de minimale- en maximale uitrol stand, deze kan je zelf nog aanpassen
-maxUitrolInCm = str(100)
-maxInrolInCm = str(20)
+maxUitrolInCm = str(160)
+maxInrolInCm = str(0.5)
 
 
 def showPagina():

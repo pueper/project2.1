@@ -85,14 +85,19 @@ class Gui():
 
     def rolZonneSchermIn(self):
         pass
-        # Hier de code om het zonnescherm in te rollen
-        # Als dit is gelukt self.isUitgerold op False zetten
+        #if (schermWaarde > 0,05):
+        #   schermwaarde == 0,05
+        #   self.isUitgerold = False
+        #else:
+        #   print("Het zonnescherm is al compleet ingerold.")
 
     def rolZonneSchermUit(self):
         pass
-
-        # Hier de code om het zonnescherm uit te rollen
-        # als dit is gelukt self.isUitgerold op True zetten
+        #if (schermwaarde < 1,60):
+        #   schermwaarde == 1,60
+        #   self.isUitgerold = True
+        #else:
+        #   print("Het zonnescherm kan niet verder worden uitgerold.")
 
 
 gui = Gui()

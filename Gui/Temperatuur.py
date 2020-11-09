@@ -1,5 +1,5 @@
 import tkinter as tk
-
+from tkinter import *
 
 def showPagina():
     root = tk.Tk()
@@ -16,7 +16,14 @@ def showPagina():
 
     # De tekst die op de pagina wordt weergeven
     temparatuurPaginaTekst = tk.Label(root, text="Overzicht temperatuursensor",
-                                      font=40)
+                                     font=40)
+
+    #grafiek weergeven op de pagina
+    canvas = Canvas(root, width=300, height=300)
+    canvas.pack()
+    img = PhotoImage(file="temp.png")
+    canvas.create_image(20, 20, anchor=NW, image=img)
+
     # De titel van de pagina
     root.title("Overzicht temperatuursensor")
     # De knop om terug te gaan naar de hoofdpagina

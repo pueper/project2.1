@@ -1,5 +1,5 @@
 import tkinter as tk
-
+from tkinter import *
 
 def showPagina():
 
@@ -17,7 +17,14 @@ def showPagina():
 
     # De tekst die op de pagina wordt weergeven
     lichtintensiteitPaginaTekst = tk.Label(root, text="Overzicht lichtintensiteit",
-                                           font=40)
+                                         font=40)
+
+    #het weergeven van de grafiek op de pagina
+    grafiek = Canvas(root, width=300, height=300)
+    grafiek.pack()
+    img = PhotoImage(file="licht.png")
+    grafiek.create_image(20, 20, image=img)
+
     # De titel van de pagina
     root.title("Overzicht lichtintensiteit")
 
