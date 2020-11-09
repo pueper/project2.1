@@ -2,7 +2,7 @@ import tkinter as tk
 import Temperatuur as temperatuur
 import lichtintensiteit as lichtintensiteit
 import instellingen as instellingen
-
+#from serial import lengte_zonnescherm
 
 class Gui():
     def __init__(self):
@@ -85,16 +85,18 @@ class Gui():
 
     def rolZonneSchermIn(self):
         pass
-        #if (schermWaarde > 0,05):
-        #   schermwaarde == 0,05
+        #lengte = lengte_zonnescherm()
+        #if (lengte > 0,05):
+        #   lengte = 0,05
         #   self.isUitgerold = False
         #else:
         #   print("Het zonnescherm is al compleet ingerold.")
 
     def rolZonneSchermUit(self):
         pass
-        #if (schermwaarde < 1,60):
-        #   schermwaarde == 1,60
+        #lengte = lengte_zonnescherm()
+        #if (lengte < 1,60):
+        #   lengte = 1,60
         #   self.isUitgerold = True
         #else:
         #   print("Het zonnescherm kan niet verder worden uitgerold.")

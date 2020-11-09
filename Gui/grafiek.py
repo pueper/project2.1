@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 #numpy is voor als we iets moeten berekenen tijdens het maken van
 #de grafiek
 #import numpy as np
+#from serial import temperatuur_data, licht_data
 
 #voor grafiek lichtsensitiviteit
 def lichtsensitiviteit_plot():
