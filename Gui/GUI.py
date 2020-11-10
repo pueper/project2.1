@@ -4,6 +4,7 @@ import lichtintensiteit as lichtintensiteit
 import instellingen as instellingen
 #from serial import lengte_zonnescherm
 
+
 class Gui():
     def __init__(self):
         self.isUitgerold = False
@@ -86,19 +87,19 @@ class Gui():
     def rolZonneSchermIn(self):
         pass
         #lengte = lengte_zonnescherm()
-        #if (lengte > 0,05):
+        # if (lengte > 0,05):
         #   lengte = 0,05
         #   self.isUitgerold = False
-        #else:
+        # else:
         #   print("Het zonnescherm is al compleet ingerold.")
 
     def rolZonneSchermUit(self):
         pass
         #lengte = lengte_zonnescherm()
-        #if (lengte < 1,60):
+        # if (lengte < 1,60):
         #   lengte = 1,60
         #   self.isUitgerold = True
-        #else:
+        # else:
         #   print("Het zonnescherm kan niet verder worden uitgerold.")
 
 
