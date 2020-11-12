@@ -10,7 +10,7 @@
 
 // output on USB = PD1 = board pin 1
 // datasheet p.190; F_OSC = 16 MHz & baud rate = 19.200
-#define UBBRVAL 51// voor het checken van bits#define CHECK_BIT(var,pos) (((var)>>(pos)) & 1)//	variabele voor uitrol/inrolint huidige_uitrol;int max_uitrol = 50;			//default-waarde, dit is de uitrol in centimetersint min_uitrol = 10;			//default-waarde, dit is de uitrol in centimetersint uitrol;int inrol;//variabele voor het aan- en uitzetten van handmatig uitrollenint manual = 0;// variabele voor inputuint8_t input;
+#define UBBRVAL 51// voor het checken van bits#define CHECK_BIT(var,pos) (((var)>>(pos)) & 1)//	variabele voor uitrol/inrolint huidige_uitrol;int max_uitrol = 50;			//default-waarde, dit is de uitrol in centimetersint min_uitrol = 20;			//default-waarde, dit is de uitrol in centimetersint uitrol;int inrol;//variabele voor het aan- en uitzetten van handmatig uitrollenint manual = 0;// variabele voor inputuint8_t input;
 void uart_init(void)
 {
 	// set the baud rate
@@ -342,7 +342,6 @@ void roluit(void)
 	SCH_Add_Task(geelaan, 0, 100, flitsen);
 	SCH_Add_Task(geeluit, 50, 100, flitsen);
 	huidige_uitrol = max_uitrol;
-	transmit(max_uitrol/10);					//de max_uitrol wordt teruggestuurd, voor testen
 }
 
 void rolin(void)
@@ -361,15 +360,14 @@ void rolin(void)
 	SCH_Add_Task(geelaan, 0, 100, flitsen);
 	SCH_Add_Task(geeluit, 50, 100, flitsen);
 	huidige_uitrol = min_uitrol;
-	transmit(min_uitrol/10);					//de min_uitrol wordt teruggestuurd, voor testen
 }
 
-void tempsend(void)
+void lichtsend(void)
 {
 	transmit(analogRead(1));
 }
 
-void lichtsend(void)
+void tempsend(void)
 {
 	transmit(analogRead(0));
 }
@@ -403,6 +401,10 @@ void receivecheck(void)
 		{
 			manual = input-64;
 		}
+		if (CHECK_BIT(input, 7) == 0 && CHECK_BIT(input, 6) == 0 && CHECK_BIT(input, 5) == 1 && CHECK_BIT(input, 0) == 1)
+		{
+			transmit(huidige_uitrol);
+		}
 		
 		input = 0;
 	}
@@ -421,8 +423,8 @@ int main()
 	SCH_Start();
 	
 	SCH_Add_Task(receivecheck, 0, 100, -1);
-	SCH_Add_Task(tempsend, 0, 500, -1);
-	SCH_Add_Task(lichtsend, 0, 500, -1);
+	SCH_Add_Task(lichtsend, 0, 1000, -1);
+	SCH_Add_Task(tempsend, 10, 1000, -1);
 	while(1)
 	{
 		SCH_Dispatch_Tasks();
