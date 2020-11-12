@@ -1,8 +1,7 @@
 import tkinter as tk
-import Temperatuur as temperatuur
-import lichtintensiteit as lichtintensiteit
+import temperatuurGrafiek as temperatuur
+import lichtintensiteitGrafiek as lichtintensiteit
 import instellingen as instellingen
-#from serial import lengte_zonnescherm
 
 
 class Gui():
@@ -25,11 +24,11 @@ class Gui():
 
         # knop om naar het temperatuur overzicht te gaan (temperatuur.py)
         buttonNaarTemperatuur = tk.Button(
-            self.root, text="Naar temperatuur overzicht", command=self.naarTemperatuur)
+            self.root, text="Temperatuur Overzicht", command=self.naarTemperatuur)
 
         # knop om naar het lichtintensiteit overzicht te gaan (lichtintensiteit.py)
         buttonNaarLichtintensiteit = tk.Button(
-            self.root, text="Naar lichtintensiteit overzicht", command=self.naarLichtintensiteit)
+            self.root, text="Lichtintensiteit Overzicht", command=self.naarLichtintensiteit)
 
         # knop om naar instellingen overzicht te gaan (instellingen.py)
         buttonNaarInstellingen = tk.Button(
@@ -86,27 +85,12 @@ class Gui():
 
     def rolZonneSchermIn(self):
         pass
-        #lengte = lengte_zonnescherm()
-        # if (lengte > 0,05):
-        #   lengte = 0,05
-        #   self.isUitgerold = False
-        # else:
-        #   print("Het zonnescherm is al compleet ingerold.")
+        # Methode om een aantal bits naar de arduino te sturen, waarop het zonnescherm wordt ingerold (en dus het rode lampje aan zal gaan)
 
     def rolZonneSchermUit(self):
         pass
-        #lengte = lengte_zonnescherm()
-        # if (lengte < 1,60):
-        #   lengte = 1,60
-        #   self.isUitgerold = True
-        # else:
-        #   print("Het zonnescherm kan niet verder worden uitgerold.")
+        # Methode om een aantal bits naar de arduino te sturen, waarop het zonnescherm wordt uitgerold (en dus het groene lampje aan zal gaan)
 
 
+# De gui aanroepen zodat deze wordt uitgevoerd
 gui = Gui()
-
-
-# Hier moet nog een functie komen om het zonnescherm handmatig in- of uit te rollen.
-# Dit kan misschien met de boolean isUitgerold, dat je deze wijzigt en dat de arduino dit leest en vervolgens hier iets mee doet
-# Ik heb al knoppen gemaakt die je naar de bijbehorende functie stuurt, in deze functie kan je dan deze boolean aanpassen, en hier
-# Kan de arduino dan op reageren.
