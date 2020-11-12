@@ -1,6 +1,6 @@
 import tkinter as tk
 
-# variabele voor de minimale- en maximale uitrol stand, deze kan je zelf nog aanpassen
+# variabele voor de minimale- en maximale uitrol stand.
 maxUitrolInCm = str(160)
 maxInrolInCm = str(0.5)
 
@@ -38,8 +38,3 @@ def showPagina():
     buttonExit.place(x=1100, y=1000)
 
     root.mainloop()
-
-    # Er moeten nog een functie komen om de minimale/maximale uitrolstand te veranderen.
-    # Dit kan d.m.v. van een tekstvak en een button die verwijst naar een functie
-    # In deze functie kan je de variabele (maxInrolInCm en MaxUitrolInCm) aanpasssen, naar de waarde die uit het tekstvak wordt gelezen
-    # Vervolgens kan je deze waarde naar het bordje sturen
